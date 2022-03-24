@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TextInput from "../Input/Input";
+import TextInput from "../input/Input";
 import { data } from "../fixture/sample";
 import Output from "../output/Output";
 import "./Home.css";

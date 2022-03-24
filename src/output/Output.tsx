@@ -1,4 +1,4 @@
-import { PersonMap } from "../Home/Home";
+import { PersonMap } from "../home/Home";
 import "./Output.css";
 
 type OutputParams = {
