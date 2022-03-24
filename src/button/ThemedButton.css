@@ -1,0 +1,18 @@
+.login__btn,
+.secondary__btn,
+.primary__btn {
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: darkslategray;
+}
+
+.login__btn,
+.secondary__btn,
+.primary__btn:hover {
+  background-color: slategray;
+  cursor: pointer;
+}

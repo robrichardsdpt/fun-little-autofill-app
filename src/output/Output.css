@@ -1,0 +1,26 @@
+.output__container {
+  width: 90%;
+  height: 40px;
+  margin: 0 auto;
+  margin-top: -5 px;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.output__item-primary {
+  background-color: lavenderblush;
+}
+
+.output__item-secondary {
+  background-color: lightblue;
+}
+
+.output__item-primary:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.output__item-secondary:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
