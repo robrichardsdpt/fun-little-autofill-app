@@ -1,6 +1,8 @@
 .home__container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 33%;
   margin: 0 auto;
   margin-top: 50px;
@@ -10,4 +12,14 @@
 
 .empty-container {
   height: 40px;
+}
+
+.home__card-grid {
+  display: grid;
+  row-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-evenly;
+  justify-items: center;
+  align-content: space-evenly;
+  align-items: center;
 }

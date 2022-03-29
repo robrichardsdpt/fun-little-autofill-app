@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextInput from "../input/Input";
 import { data } from "../fixture/sample";
 import Output from "../output/Output";
 import "./Home.css";
 import ThemedButton from "../button/ThemedButton";
 import SnackBar from "../snackbar/SnackBar";
+import Card from "../card/Card";
+import "./Home.css";
 
 export interface PersonMap {
   name: string;
@@ -13,10 +15,20 @@ export interface PersonMap {
 
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
+  const [rmdata, setRMData] = useState<any[]>([]);
   const [inputColorValue, setInputColorValue] = useState("");
   const [search, setSearch] = useState<Array<PersonMap>>([]);
   const [open, setOpen] = useState<boolean>(false);
   const [isSuccessfulSubmit, setIsSuccessfulSubmit] = useState<boolean>(false);
+
+  useEffect(() => {
+    fetch("https://rickandmortyapi.com/api/character")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setRMData(data.results);
+      });
+  }, []);
 
   const clearValues = (): void => {
     setInputValue("");
@@ -63,6 +75,21 @@ const Home = () => {
     }, 3000);
   };
 
+  const rmJsx = rmdata
+    ? rmdata
+        .filter((item) => item.name.includes("Rick"))
+        .map((item) => {
+          return (
+            <Card
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              imageUrl={item.image}
+            />
+          );
+        })
+    : "";
+
   return (
     <div>
       <SnackBar
@@ -94,6 +121,7 @@ const Home = () => {
           handleClick={(e) => handleSubmit(e)}
         />
       </form>
+      <div className="home__card-grid">{rmJsx}</div>
     </div>
   );
 };

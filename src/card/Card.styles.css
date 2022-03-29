@@ -1,0 +1,15 @@
+.card__container {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+.card__container-name {
+  background-color: slategray;
+}
+
+.card__container-image img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
