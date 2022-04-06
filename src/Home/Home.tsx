@@ -13,6 +13,11 @@ export interface PersonMap {
   color: string;
 }
 
+type DataResponse = {
+  info: {};
+  results: {}[];
+};
+
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [rmdata, setRMData] = useState<any[]>([]);
@@ -21,13 +26,27 @@ const Home = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [isSuccessfulSubmit, setIsSuccessfulSubmit] = useState<boolean>(false);
 
+  // using async-await
+  const fetchCharacters = async () => {
+    try {
+      const response: DataResponse = await (
+        await fetch("https://rickandmortyapi.com/api/character")
+      ).json();
+      setRMData(response.results);
+    } catch (e) {
+      console.error("failed!");
+    }
+  };
+
   useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/character")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setRMData(data.results);
-      });
+    // using promise chain
+    // fetch("https://rickandmortyapi.com/api/character")
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     setRMData(data.results);
+    //   });
+    fetchCharacters();
   }, []);
 
   const clearValues = (): void => {
