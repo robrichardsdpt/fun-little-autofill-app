@@ -30,11 +30,14 @@ const Home = () => {
   const fetchCharacters = async () => {
     try {
       const response: DataResponse = await (
-        await fetch("https://rickandmortyapi.com/api/character")
+        await fetch("https://rickandmortyapi.com/api/character8")
       ).json();
+
       setRMData(response.results);
+      if (!response.results)
+        throw new Error("There was an error loading your data");
     } catch (e) {
-      console.error("failed!");
+      console.error(e);
     }
   };
 
