@@ -1,8 +1,9 @@
+import { MouseEventHandler } from "react";
 import "./ThemedButton.css";
 
 type ThemedButtonProps = {
   message: string;
-  handleClick: React.MouseEventHandler<HTMLButtonElement>;
+  handleClick: MouseEventHandler<HTMLButtonElement>;
   colorTheme: string;
 };
 

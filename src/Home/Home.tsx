@@ -30,7 +30,7 @@ const Home = () => {
   const fetchCharacters = async () => {
     try {
       const response: DataResponse = await (
-        await fetch("https://rickandmortyapi.com/api/character8")
+        await fetch("https://rickandmortyapi.com/api/character")
       ).json();
 
       setRMData(response.results);
@@ -102,12 +102,14 @@ const Home = () => {
         .filter((item) => item.name.includes("Rick"))
         .map((item) => {
           return (
-            <Card
-              key={item.id}
-              id={item.id}
-              name={item.name}
-              imageUrl={item.image}
-            />
+            <div>
+              <Card
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                imageUrl={item.image}
+              />
+            </div>
           );
         })
     : "";
